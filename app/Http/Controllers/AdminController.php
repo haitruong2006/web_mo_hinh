@@ -68,8 +68,17 @@ class AdminController extends Controller
         return redirect()->route('admin.getlogin');
     }
 
-    public function UserNew(){
-        return view('admin.layout.page.thongketrongthang.thanhvien');
+    public function Order(){
+        $month = Carbon::now()->month;
+        $bills = Bill::whereMonth('data_order', '=', $month)->get();
+        $count_bill = count($bills);
+        return view('admin.layout.page.thongketrongthang.Order', compact('bills', 'count_bill'));
+    }
+
+    public function User(){
+        $month = Carbon::now()->month;
+        $users = User::whereMonth('date', '=', $month)->get();
+        return view('admin.layout.page.thongketrongthang.user', compact('users'));
     }
 
 }

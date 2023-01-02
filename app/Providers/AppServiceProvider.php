@@ -10,6 +10,7 @@ use App\Models\Cart;
 use App\Models\Cart_data;
 use App\Models\Cart_data_detail;
 use Illuminate\Support\Facades\Session;
+use App\Models\Coupons;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
             $manufacture = Manufacture::all();
             $view->with('manufacture', $manufacture);
         });
+
         //in ra số sản phẩm yêu thích
         view()->composer(['users.layout.header', 'users.layout.page.productlike'], function($view){
             if (Auth::check()) {

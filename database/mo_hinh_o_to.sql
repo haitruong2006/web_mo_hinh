@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 30, 2022 lúc 02:59 AM
+-- Thời gian đã tạo: Th1 02, 2023 lúc 08:39 AM
 -- Phiên bản máy phục vụ: 10.4.17-MariaDB
 -- Phiên bản PHP: 7.3.27
 
@@ -67,8 +67,8 @@ INSERT INTO `bills` (`id`, `id_users`, `id_coupon`, `name`, `phone`, `address`, 
 (81, 10, NULL, 'Trần viết thái', '0123456789', 'đà nẵng', '2022-11-25', 570000, 2, NULL, 1, '2022-12-29 08:42:54', '2022-12-29 01:38:34'),
 (82, 8, 1, 'Trần viết thái', '0123456789', 'đà nẵng', '2022-11-29', 350000, 1, NULL, 1, '2022-12-29 09:20:09', '2022-12-29 01:44:08'),
 (83, 10, NULL, 'Trần viết thái', '0123456789', 'đà nẵng', '2022-12-29', 730000, 1, NULL, 4, '2022-12-29 09:55:54', '2022-12-29 01:46:50'),
-(84, 9, NULL, 'Ngô Văn Hải Trường', '0123456789', 'TT Hà Lam, H.Thăng Bình, T.Quảng Nam', '2022-11-17', 1580000, 1, NULL, 1, '2022-12-29 08:57:54', '2022-12-29 01:52:48'),
-(87, 9, NULL, 'Ngô Văn Hải Trường', '0123456789', 'TT Hà Lam, H.Thăng Bình, T.Quảng Nam', '2022-12-29', 760000, 2, NULL, 3, '2022-12-29 10:04:56', '2022-12-29 01:56:41');
+(84, 9, NULL, 'Ngô Văn Hải Trường', '0123456789', 'TT Hà Lam, H.Thăng Bình, T.Quảng Nam', '2022-11-17', 1580000, 1, NULL, 1, '2023-01-02 06:53:53', '2022-12-29 01:52:48'),
+(87, 9, NULL, 'Ngô Văn Hải Trường', '0123456789', 'TT Hà Lam, H.Thăng Bình, T.Quảng Nam', '2022-11-17', 760000, 2, NULL, 3, '2023-01-02 06:53:48', '2022-12-29 01:56:41');
 
 -- --------------------------------------------------------
 
@@ -222,7 +222,8 @@ CREATE TABLE `coupons` (
 
 INSERT INTO `coupons` (`id`, `name_coupon`, `value`, `status`, `updated_at`, `created_at`) VALUES
 (1, 'giam30k', 30000, 2, '2022-12-29 01:44:08', NULL),
-(2, 'giam50k', 50000, 1, '2022-12-29 08:18:35', NULL);
+(2, 'giam50k', 50000, 1, '2022-12-29 08:18:35', NULL),
+(3, 'giam60k', 60000, 1, '2023-01-02 06:18:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -824,13 +825,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT cho bảng `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `manufacture`
 --
 ALTER TABLE `manufacture`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -870,7 +871,8 @@ ALTER TABLE `users`
 -- Các ràng buộc cho bảng `bills`
 --
 ALTER TABLE `bills`
-  ADD CONSTRAINT `bills_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `bills_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `bills_ibfk_2` FOREIGN KEY (`id_coupon`) REFERENCES `coupons` (`id`);
 
 --
 -- Các ràng buộc cho bảng `bill_detail`
@@ -898,12 +900,6 @@ ALTER TABLE `cart_detail`
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`);
-
---
--- Các ràng buộc cho bảng `coupons`
---
-ALTER TABLE `coupons`
-  ADD CONSTRAINT `coupons_ibfk_1` FOREIGN KEY (`id`) REFERENCES `bills` (`id_coupon`);
 
 --
 -- Các ràng buộc cho bảng `products`

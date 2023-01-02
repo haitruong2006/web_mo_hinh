@@ -27,7 +27,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Hình Ảnh</label>
                                                 <div class="col-sm-10">
-                                                    <input type="file" name ="image_file" class="form-control" onchange="changeImage(event)">
+                                                    <input type="file" name ="image_file" class="form-control" onchange="changeImage(event)" required>
                                                     <img id="image" class="img-thumnail" style="width: 150px;padding:5px"><br>
 
                                                     <script type="text/javascript">

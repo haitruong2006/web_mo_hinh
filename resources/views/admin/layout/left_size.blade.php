@@ -160,14 +160,14 @@
                 </a>
                 <ul class="pcoded-submenu">
                     <li class=" ">
-                        <a href="">
+                        <a href="{{ route('thongke.donhang') }}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Đơn hàng của tháng</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
                     <li class=" ">
-                        <a href="{{ route('thongke.thanhvien') }}">
+                        <a href="{{ route('thongke.nguoidung') }}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Thành Viên Đăng Ký Mới</span>
                             <span class="pcoded-mcaret"></span>
@@ -176,6 +176,52 @@
 
                 </ul>
             </li>
+        </ul>
+
+        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Quản Lý Mã Giảm Giá</div>
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="pcoded-hasmenu">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                    <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Danh Sách</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="" >
+                        <a href="{{ route('magiamgia.danhsach') }}">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Tất cả</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+
+                    <li class=" ">
+                        <a href="{{ route('magiamgia.danhsachloai', 1) }}">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Chưa Sử Dụng</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="{{ route('magiamgia.danhsachloai', 2) }}">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Đã Sử Dụng</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+
+
+
+                </ul>
+            </li>
+            <li>
+                <a href="{{ route('magiamgia.themmoi') }}">
+                    <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                    <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Thêm Mới</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+
         </ul>
 
         <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Quản Lý blog</div>

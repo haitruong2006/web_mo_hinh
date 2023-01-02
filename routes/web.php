@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CouponController;
 
 
 /*
@@ -146,7 +147,17 @@ Route::group(['prefix' => 'admin' ,'middleware' => 'checkdangnhapadmin'], functi
     });
 
     Route::group(['prefix'=>'thongke'],function(){
-        Route::get('thannviendangky', [AdminController::class, 'UserNew'])->name('thongke.thanhvien');
+        Route::get('donhang', [AdminController::class, 'Order'])->name('thongke.donhang');
+        Route::get('thanhvien', [AdminController::class, 'User'])->name('thongke.nguoidung');
+    });
+
+    Route::group(['prefix'=>'magiamgia'],function(){
+        Route::get('list', [CouponController::class, 'List'])->name('magiamgia.danhsach');
+        Route::get('listloai/{id}', [CouponController::class, 'ListLoai'])->name('magiamgia.danhsachloai');
+
+        Route::get('add', [CouponController::class, 'GetAdd'])->name('magiamgia.themmoi');
+
+        Route::post('add', [CouponController::class, 'PostAdd'])->name('magiamgia.postthemmoi');
 
     });
 
